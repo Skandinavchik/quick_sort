@@ -1,5 +1,3 @@
-const array = [5, 2, 7, 4, 8, 3, 9, 6, 10, 1];
-
 const quickSort = (arr) => {
     switch (true) {
         case arr.length <= 1:
@@ -34,5 +32,3 @@ const quickSort = (arr) => {
 
     return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 };
-
-console.log(quickSort(array));
