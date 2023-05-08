@@ -1,3 +1,5 @@
+const array = [5, 2, 7, 4, 8, 3, 9, 6, 10, 1];
+
 const quickSort = (arr) => {
     switch (true) {
         case arr.length <= 1:
@@ -14,21 +16,23 @@ const quickSort = (arr) => {
         default:
     };
 
-    const pivot = arr[0];
-    const left = [];
-    const right = [];
+    const pivot = arr[Math.floor(arr.length / 2)];
+    const leftArr = [];
+    const rightArr = [];
 
-    for (let i = 1; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         switch (true) {
             case arr[i] < pivot:
-                left.push(arr[i]);
+                leftArr.push(arr[i]);
                 break;
             case arr[i] > pivot:
-                right.push(arr[i]);
+                rightArr.push(arr[i]);
                 break;
             default:
         };
     }
 
-    return [...quickSort(left), pivot, ...quickSort(right)];
+    return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 };
+
+console.log(quickSort(array));
